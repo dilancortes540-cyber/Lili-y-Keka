@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Lili ❤️ Keka</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:Georgia, 'Times New Roman', serif;
+    background:linear-gradient(135deg,#fff0f5,#ffe0ea,#fff8fa);
+    color:#603847;
+    overflow-x:hidden;
+}
+
+/* =========================
+   CORAZONES FLOTANDO
+========================= */
+
+.heart{
+    position:fixed;
+    bottom:-50px;
+    font-size:22px;
+    animation:subir 9s linear infinite;
+    opacity:.7;
+    z-index:0;
+    pointer-events:none;
+}
+
+@keyframes subir{
+
+    0%{
+        transform:translateY(0) rotate(0deg);
+        opacity:0;
+    }
+
+    15%{
+        opacity:.8;
+    }
+
+    100%{
+        transform:translateY(-115vh) rotate(360deg);
+        opacity:0;
+    }
+}
+
+
+/* =========================
+   PORTADA
+========================= */
+
+.inicio{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px 20px;
+    position:relative;
+}
+
+.contenido{
+    position:relative;
+    z-index:2;
+    max-width:800px;
+    animation:entrada 2s ease;
+}
+
+@keyframes entrada{
+
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.frase{
+    font-size:20px;
+    letter-spacing:5px;
+    margin-bottom:25px;
+    color:#a35d75;
+    font-style:italic;
+}
+
+h1{
+    font-size:70px;
+    color:#8f405b;
+    margin-bottom:15px;
+}
+
+.corazon{
+    display:inline-block;
+    color:#d94f76;
+    animation:latido 1.3s infinite;
+}
+
+@keyframes latido{
+
+    0%,100%{
+        transform:scale(1);
+    }
+
+    50%{
+        transform:scale(1.3);
+    }
+}
+
+.fecha{
+    font-size:20px;
+    margin-bottom:15px;
+}
+
+.pequeno{
+    font-size:16px;
+    color:#986477;
+    margin-bottom:30px;
+}
+
+.boton{
+    border:none;
+    padding:16px 32px;
+    border-radius:40px;
+    background:#c95c7c;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+    box-shadow:0 10px 25px rgba(201,92,124,.3);
+    transition:.3s;
+}
+
+.boton:hover{
+    transform:scale(1.07);
+    background:#a94363;
+}
+
+
+/* =========================
+   SECCIONES
+========================= */
+
+section{
+    padding:80px 20px;
+    text-align:center;
+    position:relative;
+    z-index:1;
+}
+
+.titulo{
+    font-size:40px;
+    color:#8f405b;
+    margin-bottom:20px;
+}
+
+.subtitulo{
+    max-width:700px;
+    margin:auto;
+    font-size:18px;
+    line-height:1.8;
+}
+
+
+/* =========================
+   CONTADOR
+========================= */
+
+.contador{
+    max-width:750px;
+    margin:35px auto;
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
+}
+
+.numero{
+    background:rgba(255,255,255,.8);
+    padding:25px 10px;
+    border-radius:20px;
+    box-shadow:0 8px 25px rgba(120,70,90,.12);
+}
+
+.numero strong{
+    display:block;
+    font-size:32px;
+    color:#a94363;
+}
+
+.numero span{
+    font-size:14px;
+}
+
+
+/* =========================
+   CARTA
+========================= */
+
+.carta{
+    max-width:720px;
+    margin:35px auto;
+    padding:40px;
+    background:rgba(255,255,255,.9);
+    border-radius:25px;
+    box-shadow:0 15px 40px rgba(130,70,90,.15);
+    text-align:left;
+    line-height:1.9;
+    font-size:18px;
+    position:relative;
+}
+
+.carta:before{
+    content:"💗";
+    position:absolute;
+    top:-18px;
+    left:50%;
+    transform:translateX(-50%);
+    font-size:35px;
+}
+
+.firma{
+    text-align:right;
+}
+
+
+/* =========================
+   GALERÍA
+========================= */
+
+.galeria{
+    max-width:950px;
+    margin:40px auto;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.foto{
+    height:280px;
+    background:#f5cbd6;
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 8px 25px rgba(120,70,90,.15);
+    transition:.4s;
+}
+
+.foto:hover{
+    transform:translateY(-8px) rotate(1deg);
+    box-shadow:0 15px 35px rgba(120,70,90,.25);
+}
+
+.foto img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+    display:block;
+}
+
+
+/* =========================
+   HISTORIA
+========================= */
+
+.timeline{
+    max-width:750px;
+    margin:40px auto;
+}
+
+.momento{
+    background:white;
+    margin:25px 0;
+    padding:28px;
+    border-radius:22px;
+    box-shadow:0 8px 25px rgba(120,70,90,.12);
+    transition:.3s;
+}
+
+.momento:hover{
+    transform:scale(1.02);
+}
+
+.momento h3{
+    color:#b34e70;
+    margin-bottom:10px;
+    font-size:21px;
+}
+
+.momento p{
+    line-height:1.7;
+}
+
+
+/* =========================
+   MÚSICA
+========================= */
+
+.musica{
+    max-width:550px;
+    margin:35px auto;
+    background:white;
+    padding:30px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(120,70,90,.12);
+}
+
+.disco{
+    font-size:60px;
+    margin-bottom:15px;
+    animation:girar 5s linear infinite;
+}
+
+@keyframes girar{
+    from{
+        transform:rotate(0deg);
+    }
+
+    to{
+        transform:rotate(360deg);
+    }
+}
+
+audio{
+    width:100%;
+}
+
+
+/* =========================
+   FINAL
+========================= */
+
+.final{
+    min-height:80vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.final h2{
+    font-size:55px;
+    color:#8f405b;
+    margin-bottom:20px;
+}
+
+.final p{
+    font-size:20px;
+    margin:10px;
+}
+
+.infinito{
+    font-size:60px;
+    margin-top:20px;
+    color:#c95c7c;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+    padding:30px;
+    text-align:center;
+    background:rgba(255,255,255,.7);
+    color:#8f405b;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:650px){
+
+    h1{
+        font-size:48px;
+    }
+
+    .frase{
+        font-size:16px;
+        letter-spacing:3px;
+    }
+
+    .titulo{
+        font-size:32px;
+    }
+
+    .subtitulo{
+        font-size:16px;
+    }
+
+    .contador{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .numero strong{
+        font-size:27px;
+    }
+
+    .galeria{
+        grid-template-columns:1fr;
+    }
+
+    .foto{
+        height:350px;
+    }
+
+    .carta{
+        padding:28px 22px;
+        font-size:17px;
+    }
+
+    .final h2{
+        font-size:40px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<!-- =================================
+     CORAZONES
+================================= -->
+
+<div class="heart" style="left:5%;animation-delay:0s;">❤️</div>
+<div class="heart" style="left:15%;animation-delay:2s;">💕</div>
+<div class="heart" style="left:28%;animation-delay:4s;">💗</div>
+<div class="heart" style="left:40%;animation-delay:1s;">💖</div>
+<div class="heart" style="left:55%;animation-delay:3s;">❤️</div>
+<div class="heart" style="left:70%;animation-delay:5s;">💕</div>
+<div class="heart" style="left:82%;animation-delay:2s;">💗</div>
+<div class="heart" style="left:94%;animation-delay:4s;">❤️</div>
+
+
+<!-- =================================
+     PORTADA
+================================= -->
+
+<section class="inicio">
+
+    <div class="contenido">
+
+        <div class="frase">
+            melkita ulamun
+        </div>
+
+        <h1>
+            Lili
+            <span class="corazon">❤️</span>
+            Keka
+        </h1>
+
+        <p class="fecha">
+            Desde el 11 de noviembre de 2025
+        </p>
+
+        <p class="pequeno">
+            Una historia, dos personas y muchos recuerdos por crear.
+        </p>
+
+        <button class="boton" onclick="irACarta()">
+            💌 Tengo algo para ti
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     NUESTRA HISTORIA
+================================= -->
+
+<section>
+
+    <h2 class="titulo">
+        Nuestra historia ❤️
+    </h2>
+
+    <p class="subtitulo">
+
+        Hay personas que llegan a nuestra vida sin avisar
+        y terminan convirtiéndose en una de las partes
+        más bonitas de ella.
+
+        <br><br>
+
+        Y para mí, tú eres una de esas personas.
+
+    </p>
+
+</section>
+
+
+<!-- =================================
+     CONTADOR
+================================= -->
+
+<section>
+
+    <h2 class="titulo">
+        Nuestro tiempo juntos ⏳
+    </h2>
+
+    <p class="subtitulo">
+        Desde aquel 11 de noviembre de 2025...
+    </p>
+
+    <div class="contador">
+
+        <div class="numero">
+            <strong id="dias">0</strong>
+            <span>Días</span>
+        </div>
+
+        <div class="numero">
+            <strong id="horas">0</strong>
+            <span>Horas</span>
+        </div>
+
+        <div class="numero">
+            <strong id="minutos">0</strong>
+            <span>Minutos</span>
+        </div>
+
+        <div class="numero">
+            <strong id="segundos">0</strong>
+            <span>Segundos</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     CARTA
+================================= -->
+
+<section id="carta">
+
+    <h2 class="titulo">
+        Para Keka 💌
+    </h2>
+
+    <div class="carta">
+
+        <p>
+            Mi Keka:
+        </p>
+
+        <br>
+
+        <p>
+            Quería hacerte algo diferente, algo que pudiera
+            guardar nuestros recuerdos y que cada vez que lo
+            vieras te recordara lo mucho que te quiero.
+        </p>
+
+        <br>
+
+        <p>
+            Desde aquel 11 de noviembre de 2025 comenzaron
+            muchas cosas bonitas. Momentos, risas, abrazos,
+            conversaciones y recuerdos que poco a poco se
+            fueron convirtiendo en nuestra historia.
+        </p>
+
+        <br>
+
+        <p>
+            No sé qué nos tenga preparado el futuro, pero
+            sí sé que cada momento contigo ha sido especial
+            para mí.
+        </p>
+
+        <br>
+
+        <p>
+            Gracias por estar en mi vida, por ser tú y por
+            dejarme compartir tantos momentos contigo.
+        </p>
+
+        <br>
+
+        <p>
+            Espero que sigamos creando recuerdos, viviendo
+            momentos y escribiendo juntos muchas páginas
+            más de esta historia.
+        </p>
+
+        <br>
+
+        <p>
+            Te quiero muchísimo, Keka. ❤️
+        </p>
+
+        <br>
+
+        <p class="firma">
+            Con amor,<br>
+            <strong>Lili ❤️</strong>
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     FOTOS
+================================= -->
+
+<section>
+
+    <h2 class="titulo">
+        Nuestros recuerdos 📸
+    </h2>
+
+    <p class="subtitulo">
+
+        Algunas de nuestras fotos favoritas.
+        Y todavía faltan muchísimas por agregar. ❤️
+
+    </p>
+
+
+    <div class="galeria">
+
+        <div class="foto">
+            <img src="fotos/foto1.jpg" alt="Nuestro recuerdo 1">
+        </div>
+
+        <div class="foto">
+            <img src="fotos/foto2.jpg" alt="Nuestro recuerdo 2">
+        </div>
+
+        <div class="foto">
+            <img src="fotos/foto3.jpg" alt="Nuestro recuerdo 3">
+        </div>
+
+        <div class="foto">
+            <img src="fotos/foto4.jpg" alt="Nuestro recuerdo 4">
+        </div>
+
+        <div class="foto">
+            <img src="fotos/foto5.jpg" alt="Nuestro recuerdo 5">
+        </div>
+
+        <div class="foto">
+            <img src="fotos/foto6.jpg" alt="Nuestro recuerdo 6">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     LÍNEA DEL TIEMPO
+================================= -->
+
+<section>
+
+    <h2 class="titulo">
+        Nuestra historia 🗓️
+    </h2>
+
+    <div class="timeline">
+
+        <div class="momento">
+
+            <h3>
+                11 de noviembre de 2025 ❤️
+            </h3>
+
+            <p>
+                El día que comenzó nuestra historia.
+            </p>
+
+        </div>
+
+
+        <div class="momento">
+
+            <h3>
+                Nuestros primeros recuerdos 💕
+            </h3>
+
+            <p>
+                Aquí podemos guardar uno de esos momentos
+                que nunca queremos olvidar.
+            </p>
+
+        </div>
+
+
+        <div class="momento">
+
+            <h3>
+                Un momento inolvidable 💗
+            </h3>
+
+            <p>
+                Cada risa, cada abrazo y cada momento contigo
+                se ha convertido en parte de nuestra historia.
+            </p>
+
+        </div>
+
+
+        <div class="momento">
+
+            <h3>
+                Y todavía falta mucho... ✨
+            </h3>
+
+            <p>
+                Porque nuestra historia todavía tiene
+                muchas páginas por escribir.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     CANCIÓN
+================================= -->
+
+<section>
+
+    <h2 class="titulo">
+        Nuestra canción 🎵
+    </h2>
+
+    <div class="musica">
+
+        <div class="disco">
+            💿
+        </div>
+
+        <p>
+            Una canción para nosotros ❤️
+        </p>
+
+        <br>
+
+        <audio controls>
+
+            <source src="cancion.mp3" type="audio/mpeg">
+
+            Tu navegador no puede reproducir esta canción.
+
+        </audio>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     FINAL
+================================= -->
+
+<section class="final">
+
+    <div>
+
+        <h2>
+            Lili ❤️ Keka
+        </h2>
+
+        <p>
+            Una historia que apenas comienza...
+        </p>
+
+        <p>
+            Gracias por existir en mi vida. ❤️
+        </p>
+
+        <p>
+            11.11.2025
+        </p>
+
+        <div class="infinito">
+            ♾️
+        </div>
+
+    </div>
+
+</section>
+
+
+<footer>
+
+    Hecho con ❤️ por Lili para Keka
+
+</footer>
+
+
+<!-- =================================
+     JAVASCRIPT
+================================= -->
+
+<script>
+
+/* BOTÓN DE LA CARTA */
+
+function irACarta(){
+
+    document.getElementById("carta").scrollIntoView({
+        behavior:"smooth"
+    });
+
+}
+
+
+/* CONTADOR */
+
+const fechaInicio = new Date("2025-11-11T00:00:00");
+
+function actualizarContador(){
+
+    const ahora = new Date();
+
+    const diferencia = ahora - fechaInicio;
+
+    const segundosTotales =
+        Math.floor(diferencia / 1000);
+
+    const dias =
+        Math.floor(segundosTotales / 86400);
+
+    const horas =
+        Math.floor((segundosTotales % 86400) / 3600);
+
+    const minutos =
+        Math.floor((segundosTotales % 3600) / 60);
+
+    const segundos =
+        segundosTotales % 60;
+
+
+    document.getElementById("dias").textContent =
+        dias;
+
+    document.getElementById("horas").textContent =
+        horas;
+
+    document.getElementById("minutos").textContent =
+        minutos;
+
+    document.getElementById("segundos").textContent =
+        segundos;
+
+}
+
+
+/* ACTUALIZAR CADA SEGUNDO */
+
+actualizarContador();
+
+setInterval(actualizarContador,1000);
+
+</script>
+
+
+</body>
+</html>
